@@ -693,6 +693,9 @@
         >
           [Budi] &amp; [Lisa]
         </p>
+        <p style="color: #fff; margin-top: 12px; font-size: 1.2rem">
+          Kepada Yth: <span id="guestName">Tamu Undangan</span>
+        </p>
         <button
           id="btnBukaUndangan"
           style="
@@ -890,9 +893,15 @@
       $$("section .card, section h2, .events .event, .gallery img").forEach(
         (el) => io.observe(el)
       );
+
+      // ====== Nama Tamu dari URL ======
+      const params = new URLSearchParams(window.location.search);
+      const guest = params.get("to");
+
+      if (guest) {
+        document.getElementById("guestName").textContent =
+          decodeURIComponent(guest);
+      }
     </script>
   </body>
 </html>
-
-
-
