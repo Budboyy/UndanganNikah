@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Undangan Pernikahan – [Suardika & Murjani]</title>
+    <title>Undangan Pernikahan – Suardika & Murjani</title>
     <meta
       name="description"
-      content="Undangan pernikahan [Suardika & Murjani] pada [17 September 2025]. Kehadiran Anda sangat berarti."
+      content="Undangan pernikahan Suardika & Murjani pada 17 September 2025. Kehadiran Anda sangat berarti."
     />
     <meta
       property="og:title"
-      content="Undangan Pernikahan – [Suardika & Murjani]"
+      content="Undangan Pernikahan – Suardika & Murjani"
     />
     <meta property="og:description" content="Kehadiran Anda sangat berarti." />
     <meta property="og:type" content="website" />
@@ -808,12 +808,13 @@
         >
           Undangan Pernikahan
         </p>
-        <h1 class="title fade-up delay-1">[Suardika] &amp; [Murjani]</h1>
+        <h1 class="title fade-up delay-1">Suardika &amp; Murjani</h1>
         <p class="names fade-up delay-2">
           Kami mengundang Anda untuk hadir dalam hari bahagia kami
         </p>
         <p class="date fade-up delay-3">
-          [Senin, 17 September 2025] • [Pukul 10.00 WITA]
+          Senin, 17 September 2025 
+          <p>Pukul 10.00 WITA</p>
         </p>
         <div
           class="countdown fade-up"
@@ -1323,7 +1324,7 @@
           Undangan Pernikahan
         </h2>
         <p class="cover-name" style="margin-bottom: 24px">
-          [Suardika] &amp; [Murjani]
+          Suardika &amp; Murjani
         </p>
         <p style="color: #fff; margin-top: 12px; font-size: 1.2rem">
           Kepada Yth: <span id="guestName">Tamu Undangan</span>
@@ -1413,20 +1414,6 @@
       tick();
       const timer = setInterval(tick, 1000);
 
-      const btnWa = $("#btnWa");
-      if (btnWa) {
-        btnWa.addEventListener("click", () => {
-          const nama = $('#rsvpForm [name="nama"]')?.value || "-";
-          const konfirmasi =
-            $('#rsvpForm [name="konfirmasi"]:checked')?.value || "-";
-          const pesan = $('#rsvpForm [name="pesan"]')?.value || "-";
-          const teks = encodeURIComponent(
-            `Halo, saya ${nama}.\nKonfirmasi: ${konfirmasi}.\nPesan: ${pesan}`
-          );
-          // Ganti 628xxxx dengan nomor WA panitia
-          window.open("https://wa.me/6281234567890?text=" + teks, "_blank");
-        });
-      }
 
       // ====== Copy rekening ======
       // safe: $$ returns [] if none
