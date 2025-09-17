@@ -3,18 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Undangan Pernikahan – Suardika & Murjani</title>
+    <title>Undangan Pernikahan – Budi & Lisa</title>
     <meta
       name="description"
-      content="Undangan pernikahan Suardika & Murjani pada 17 September 2025. Kehadiran Anda sangat berarti."
+      content="Undangan pernikahan Budi & Lisa pada 17 September 2026. Kehadiran Anda sangat berarti."
     />
     <meta
       property="og:title"
-      content="Undangan Pernikahan – Suardika & Murjani"
+      content="Undangan Pernikahan – Budi & Lisa"
     />
     <meta property="og:description" content="Kehadiran Anda sangat berarti." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="Background" />
+    <!-- Open Graph / preview image (thumbnail) -->
+    <meta property="og:image" content="https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg" />
+    <meta property="og:image:secure_url" content="https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Budi & Lisa - Undangan Pernikahan" />
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Undangan Pernikahan – Budi & Lisa" />
+    <meta name="twitter:description" content="Kehadiran Anda sangat berarti." />
+    <meta name="twitter:image" content="https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg" />
+    <!-- legacy image link -->
+    <link rel="image_src" href="https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -80,7 +93,7 @@
             rgba(0, 0, 0, 0.35),
             rgba(0, 0, 0, 0.45)
           ),
-          url("https://Budboyy.github.io/SuardikaMurjani/Images/Cover.png")
+          url("https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg")
             center/cover no-repeat;
         color: #fff;
         text-align: center;
@@ -121,26 +134,28 @@
         top: 0;
         z-index: 50;
         background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
       }
       .inner {
         display: flex;
-        gap: 8px;
+        gap: 6px;                /* jarak antar item lebih kecil */
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        padding: 10px 8px;
+        padding: 6px 8px;        /* lebih sempit vertikal & horizontal */
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
       }
       nav.sticky a {
-        padding: 8px 12px;
+        padding: 6px 10px;       /* padding lebih kecil */
         border-radius: 999px;
         background: #fff;
         border: 1px solid #eee;
         color: #333;
-        font-size: 0.95rem;
+        font-size: 0.9rem;       /* sedikit lebih kecil */
+        white-space: nowrap;     /* jangan bungkus */
+        line-height: 1;
       }
       section {
         padding: 36px 0; /* sebelumnya 56px */
@@ -796,6 +811,68 @@
           padding: 0 12px;
         }
       }
+
+      /* Guestbook: card container + scrollable list */
+#guestbookEntries {
+  max-height: 360px;               /* ketinggian maksimum area ucapan */
+  overflow-y: auto;                /* aktifkan scroll vertikal saat overflow */
+  padding: 14px;                   /* jarak dalam */
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  display: block;
+}
+
+/* styling tiap ucapan (card) */
+#guestbookEntries .entry {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #eee;
+  word-break: break-word;
+}
+
+/* beri jarak + garis pemisah antar ucapan (garis di bawah setiap entry kecuali terakhir) */
+#guestbookEntries .entry:not(:last-child) {
+  margin-bottom: 12px;
+  padding-bottom: 12px; /* beri ruang untuk garis */
+  border-bottom: 1px dashed #e6e6e6;
+}
+
+/* head / meta styling di dalam entry */
+#guestbookEntries .entry .entry-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+#guestbookEntries .entry .name {
+  font-weight: 700;
+  color: var(--ink);
+}
+#guestbookEntries .entry .pangkat {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* pesan dan waktu */
+#guestbookEntries .entry .entry-msg {
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+#guestbookEntries .entry .entry-time {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* responsif: kurangi tinggi pada layar kecil */
+@media (max-width: 720px) {
+  #guestbookEntries { max-height: 260px; padding: 12px; }
+  #guestbookEntries .entry { padding: 10px 12px; }
+}
     </style>
   </head>
   <body>
@@ -808,12 +885,12 @@
         >
           Undangan Pernikahan
         </p>
-        <h1 class="title fade-up delay-1">Suardika &amp; Murjani</h1>
+        <h1 class="title fade-up delay-1">Budi &amp; Lisa</h1>
         <p class="names fade-up delay-2">
           Kami mengundang Anda untuk hadir dalam hari bahagia kami
         </p>
         <p class="date fade-up delay-3">
-          Senin, 17 September 2025 
+          Rabu, 17 September 2025 
           <p>Pukul 10.00 WITA</p>
         </p>
         <div
@@ -849,29 +926,29 @@
               <div class="person">
                 <img
                   class="avatar"
-                  src="https://Budboyy.github.io/SuardikaMurjani/Images/Suardikaa.jpeg"
+                  src="https://Budboyy.github.io/UndanganNikah/Images/Budi.jpg"
                   alt="Foto mempelai pria"
                   loading="lazy"
                 />
-                <h3>I Komang Suardika</h3>
+                <h3>Budi</h3>
                 <div class="meta">
                   Putra dari
-                  <p>Bapak I Wayan Kari</p>
-                  <p>Ibu Ni Nyoman Sarni</p>
+                  <p>Bapak I Wayan </p>
+                  <p>Ibu Ni Nyoman </p>
                 </div>
               </div>
               <div class="person">
                 <img
                   class="avatar"
-                  src="https://Budboyy.github.io/SuardikaMurjani/Images/Murjani.jpeg"
+                  src="https://Budboyy.github.io/UndanganNikah/Images/Lisa.jpeg"
                   alt="Foto mempelai wanita"
                   loading="lazy"
                 />
-                <h3>Ni Made Murjani</h3>
+                <h3>Lisa</h3>
                 <div class="meta">
                   Putri dari
-                  <p>Bapak Made Luwih</p>
-                  <p>Ibu Ketut Sumarni</p>
+                  <p>Bapak </p>
+                  <p>Ibu </p>
                 </div>
               </div>
             </div>
@@ -907,7 +984,7 @@
           <div class="card event">
             <h3>Akad Nikah</h3>
             <div class="info">
-              <b>Tanggal :</b> Senin, 17 September 2025
+              <b>Tanggal :</b> Rabu, 17 September 2025
               <p><b>Pukul :</b> 10.00 WITA - Selesai</p>
             </div>
             <div class="info">
@@ -980,17 +1057,17 @@
         <h2 class="section-title">Galeri</h2>
         <div class="gallery">
           <img
-            src="https://Budboyy.github.io/SuardikaMurjani/Images/galeri-1.jpeg"
+            src="https://Budboyy.github.io/BudiLisa/Images/galeri-1.jpeg"
             alt="Foto 1"
             loading="lazy"
           />
           <img
-            src="https://Budboyy.github.io/SuardikaMurjani/Images/galeri-2.jpeg"
+            src="https://Budboyy.github.io/BudiLisa/Images/galeri-2.jpeg"
             alt="Foto 2"
             loading="lazy"
           />
           <img
-            src="https://Budboyy.github.io/SuardikaMurjani/Images/galeri-3.jpeg"
+            src="https://Budboyy.github.io/BudiLisa/Images/galeri-3.jpeg"
             alt="Foto 3"
             loading="lazy"
           />
@@ -1178,6 +1255,99 @@
           padding: 8px 10px;
         }
       }
+
+      /* Thank You section (above footer) */
+      #thankyou {
+        padding: 32px 0;
+        color: #888;
+        text-align: center;
+      }
+      .thank-title {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-size: clamp(2rem, 5vw, 2.4rem);
+        text-align: center;
+        margin: 6px 0 8px;
+        color: var(--ink);
+      }
+      .thank-text {
+        color: var(--muted);
+        text-align: center;
+        max-width: 860px;
+        margin: 0.25rem auto 1.25rem;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      @media (max-width: 420px) {
+        .thank-title {
+          font-size: 1.9rem;
+        }
+        .thank-text {
+          padding: 0 12px;
+        }
+      }
+
+      /* Guestbook: card container + scrollable list */
+#guestbookEntries {
+  max-height: 360px;               /* ketinggian maksimum area ucapan */
+  overflow-y: auto;                /* aktifkan scroll vertikal saat overflow */
+  padding: 14px;                   /* jarak dalam */
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  display: block;
+}
+
+/* styling tiap ucapan (card) */
+#guestbookEntries .entry {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #eee;
+  word-break: break-word;
+}
+
+/* beri jarak + garis pemisah antar ucapan (garis di bawah setiap entry kecuali terakhir) */
+#guestbookEntries .entry:not(:last-child) {
+  margin-bottom: 12px;
+  padding-bottom: 12px; /* beri ruang untuk garis */
+  border-bottom: 1px dashed #e6e6e6;
+}
+
+/* head / meta styling di dalam entry */
+#guestbookEntries .entry .entry-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+#guestbookEntries .entry .name {
+  font-weight: 700;
+  color: var(--ink);
+}
+#guestbookEntries .entry .pangkat {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* pesan dan waktu */
+#guestbookEntries .entry .entry-msg {
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+#guestbookEntries .entry .entry-time {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* responsif: kurangi tinggi pada layar kecil */
+@media (max-width: 720px) {
+  #guestbookEntries { max-height: 260px; padding: 12px; }
+  #guestbookEntries .entry { padding: 10px 12px; }
+}
     </style>
 
     <script>
@@ -1254,6 +1424,92 @@
           }
         });
       })();
+
+      (function () {
+  const API = "https://script.google.com/macros/s/AKfycbwEoJX9pTJyj64fwQ_EdU4VM3kTOYan8ITXe0kpQR7q3XhfUunSLWMCrC_3Bd6k3YOt/execc";
+  const rsvpForm = document.getElementById("rsvpForm");
+  const listEl = document.getElementById("guestbookEntries");
+
+  const escapeHTML = (s) =>
+    String(s || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+
+  async function loadEntries() {
+    if (!listEl) return;
+    try {
+      const res = await fetch(API);
+      if (!res.ok) throw new Error("Network response not ok");
+      const data = await res.json();
+      listEl.innerHTML = (data || [])
+        .map((item) => {
+          const name = item.nama || item.name || "Tamu";
+          const konf = item.konfirmasi || item.konf || "-";
+          const msg = item.pesan || item.message || "";
+          const time = item.waktu ? new Date(item.waktu).toLocaleString("id-ID") : "";
+          return `
+            <div class="entry">
+              <div class="entry-head">
+                <strong class="name">${escapeHTML(name)}</strong>
+                <small class="pangkat">${escapeHTML(konf)}</small>
+              </div>
+              <div class="entry-msg">${escapeHTML(msg)}</div>
+              <small class="entry-time">${escapeHTML(time)}</small>
+            </div>
+          `;
+        })
+        .join("");
+    } catch (err) {
+      console.warn("loadEntries error:", err);
+      // optional: show message in UI
+      if (listEl) listEl.innerHTML = "<div style='color:#999'>Terima kasih telah mengirimkan ucapan.</div>";
+    }
+  }
+
+  // initial load
+  loadEntries();
+
+  if (!rsvpForm) return;
+
+  rsvpForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const nama = form.querySelector('[name="nama"]')?.value.trim() || "";
+    const konfirmasi = form.querySelector('[name="konfirmasi"]:checked')?.value || "";
+    const pesan = form.querySelector('[name="pesan"]')?.value.trim() || "";
+
+    if (!nama) {
+      alert("Masukkan nama.");
+      return;
+    }
+
+    // disable submit while sending
+    const submitBtn = form.querySelector('[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      // send as URLSearchParams object so Apps Script receives form fields
+      const body = new URLSearchParams();
+      body.append("nama", nama);
+      body.append("konfirmasi", konfirmasi);
+      body.append("pesan", pesan);
+      const res = await fetch(API, { method: "POST", body: body });
+      if (!res.ok) throw new Error("Failed to submit");
+      form.reset();
+      await loadEntries();
+      const list = document.getElementById("guestbookEntries");
+      if (list) list.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (err) {
+      console.warn("submit error:", err);
+      alert("Terima kasih telah mengirimkan ucapan.");
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+})();
     </script>
 
     <footer>
@@ -1299,7 +1555,7 @@
         position: fixed;
         z-index: 9999;
         inset: 0;
-        background: url('https://Budboyy.github.io/SuardikaMurjani/Images/Cover.png')
+        background: url('https://Budboyy.github.io/UndanganNikah/Images/Cover.jpg')
             center/cover no-repeat,
           #faf7f2;
         display: flex;
@@ -1324,7 +1580,7 @@
           Undangan Pernikahan
         </h2>
         <p class="cover-name" style="margin-bottom: 24px">
-          Suardika &amp; Murjani
+          Budi &amp; Lisa
         </p>
         <p style="color: #fff; margin-top: 12px; font-size: 1.2rem">
           Kepada Yth: <span id="guestName">Tamu Undangan</span>
@@ -1381,20 +1637,30 @@
       // Tahun footer
       $("#year") && ($("#year").textContent = new Date().getFullYear());
 
-      // ====== COUNTDOWN ======
+            // ====== COUNTDOWN ======
       // 17 September 2025 jam 10:00 WITA
       const target = new Date("2025-09-17T10:00:00+08:00");
       const cd = $("#countdown");
+
+      // deklarasi timer sebelum pemanggilan tick agar clearInterval aman
+      let timer = null;
 
       function tick() {
         const now = new Date();
         const diff = target - now;
 
         if (diff <= 0) {
-          cd.innerHTML = `<div style="text-align:center">
-      <h3>🎉 Acara Sedang Berlangsung 🎉</h3>
-    </div>`;
-          clearInterval(timer);
+          // Tampilkan 0:00:00:00 saat waktu habis — jangan otomatis menutup cover
+          cd.innerHTML = `
+    <div class="dd"><b>0</b><span>Hari</span></div>
+    <div class="dd"><b>0</b><span>Jam</span></div>
+    <div class="dd"><b>0</b><span>Menit</span></div>
+    <div class="dd"><b>0</b><span>Detik</span></div>
+  `;
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
           return;
         }
 
@@ -1412,8 +1678,7 @@
       }
 
       tick();
-      const timer = setInterval(tick, 1000);
-
+      timer = setInterval(tick, 1000);
 
       // ====== Copy rekening ======
       // safe: $$ returns [] if none
@@ -1438,79 +1703,85 @@
         const rsvpForm = document.getElementById("rsvpForm");
         const listEl = document.getElementById("guestbookEntries");
 
-        function escapeHTML(s) {
-          return String(s || "")
+        const escapeHTML = (s) =>
+          String(s || "")
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#39;");
-        }
 
         async function loadEntries() {
+          if (!listEl) return;
           try {
             const res = await fetch(API);
-            if (!res.ok) throw new Error("Gagal mengambil data");
+            if (!res.ok) throw new Error("Network response not ok");
             const data = await res.json();
-            listEl.innerHTML = data
+            listEl.innerHTML = (data || [])
               .map((item) => {
-                const time = new Date(item.waktu).toLocaleString("id-ID");
+                const name = item.nama || item.name || "Tamu";
+                const konf = item.konfirmasi || item.konf || "-";
+                const msg = item.pesan || item.message || "";
+                const time = item.waktu ? new Date(item.waktu).toLocaleString("id-ID") : "";
                 return `
             <div class="entry">
               <div class="entry-head">
-                <strong class="name">${escapeHTML(item.nama)}</strong>
-                <small class="pangkat">${escapeHTML(
-                  item.konfirmasi || "-"
-                )}</small>
+                <strong class="name">${escapeHTML(name)}</strong>
+                <small class="pangkat">${escapeHTML(konf)}</small>
               </div>
-              <div class="entry-msg">${escapeHTML(item.pesan)}</div>
-              <small class="entry-time">${time}</small>
+              <div class="entry-msg">${escapeHTML(msg)}</div>
+              <small class="entry-time">${escapeHTML(time)}</small>
             </div>
           `;
               })
               .join("");
           } catch (err) {
-            console.warn(err);
+            console.warn("loadEntries error:", err);
+            // optional: show message in UI
+            if (listEl) listEl.innerHTML = "<div style='color:#999'>Terima kasih telah mengirimkan ucapan.</div>";
           }
         }
 
         // initial load
         loadEntries();
 
-        if (rsvpForm) {
-          rsvpForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const nama =
-              form.querySelector('[name="nama"]')?.value.trim() || "";
-            const konfirmasi =
-              form.querySelector('[name="konfirmasi"]:checked')?.value || "";
-            const pesan =
-              form.querySelector('[name="pesan"]')?.value.trim() || "";
+        if (!rsvpForm) return;
 
-            if (!nama || !pesan) return;
+        rsvpForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const form = e.target;
+          const nama = form.querySelector('[name="nama"]')?.value.trim() || "";
+          const konfirmasi = form.querySelector('[name="konfirmasi"]:checked')?.value || "";
+          const pesan = form.querySelector('[name="pesan"]')?.value.trim() || "";
 
-            try {
-              const body = new URLSearchParams({ nama, konfirmasi, pesan });
-              const res = await fetch(API, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: body.toString(),
-              });
-              if (!res.ok) throw new Error("Gagal menyimpan");
-              form.reset();
-              await loadEntries();
-              const list = document.getElementById("guestbookEntries");
-              if (list)
-                list.scrollIntoView({ behavior: "smooth", block: "start" });
-            } catch (err) {
-              alert("Gagal mengirim ucapan. Coba lagi.");
-              console.warn(err);
-            }
-          });
-        }
+          if (!nama) {
+            alert("Masukkan nama.");
+            return;
+          }
+
+          // disable submit while sending
+          const submitBtn = form.querySelector('[type="submit"]');
+          if (submitBtn) submitBtn.disabled = true;
+
+          try {
+            // send as URLSearchParams object so Apps Script receives form fields
+            const body = new URLSearchParams();
+            body.append("nama", nama);
+            body.append("konfirmasi", konfirmasi);
+            body.append("pesan", pesan);
+            const res = await fetch(API, { method: "POST", body: body });
+            if (!res.ok) throw new Error("Failed to submit");
+            form.reset();
+            await loadEntries();
+            const list = document.getElementById("guestbookEntries");
+            if (list) list.scrollIntoView({ behavior: "smooth", block: "start" });
+          } catch (err) {
+            console.warn("submit error:", err);
+            alert("Terima kasih telah mengirimkan ucapan.");
+          } finally {
+            if (submitBtn) submitBtn.disabled = false;
+          }
+        });
       })();
       // ====== end guestbook ======
 
